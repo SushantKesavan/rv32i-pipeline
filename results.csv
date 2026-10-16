@@ -1,0 +1,2 @@
+pred,bench,cycles,instrs,cpi,branches,taken,mispredicts,accuracy,jal,jalr,load_use_stalls,id_redirects,ex_redirects,mispred_pred_taken
+gshare64,bubble,18947,13704,1.3826,4349,1144,642,85.24,1127,2,2016,2243,644,307

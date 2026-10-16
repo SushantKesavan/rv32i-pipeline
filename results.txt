@@ -1,0 +1,30 @@
+python3 scripts/run_bench.py --sim iverilog
+
+Branch prediction accuracy (%), conditional branches only
+
+| predictor | bubble | insertion | fib_rec | fib_iter | sieve | ALL |
+|---|---|---|---|---|---|---|
+| static-NT | 73.7 | 48.6 | 61.8 | 2.6 | 34.8 | 54.7 |
+| static-BTFN | 29.1 | 57.1 | 50.0 | 97.4 | 90.0 | 54.0 |
+| 1-bit | 81.6 | 94.3 | 38.3 | 94.9 | 86.8 | 78.4 |
+| 2-bit | 84.0 | 96.7 | 50.1 | 97.2 | 93.1 | 83.1 |
+| gshare64 | 85.2 | 95.5 | 89.8 | 96.1 | 87.0 | 89.1 |
+
+CPI (cycles / retired instructions)
+
+| predictor | bubble | insertion | fib_rec | fib_iter | sieve | ALL |
+|---|---|---|---|---|---|---|
+| static-NT | 1.397 | 1.428 | 1.234 | 1.392 | 1.491 | 1.344 |
+| static-BTFN | 1.763 | 1.527 | 1.270 | 1.212 | 1.351 | 1.432 |
+| 1-bit | 1.401 | 1.305 | 1.280 | 1.217 | 1.350 | 1.317 |
+| 2-bit | 1.389 | 1.291 | 1.254 | 1.212 | 1.330 | 1.298 |
+| gshare64 | 1.383 | 1.295 | 1.215 | 1.214 | 1.352 | 1.284 |
+
+Per-benchmark counts (predictor = gshare64 if present)
+  bubble     instrs= 13704 cycles= 18947 branches= 4349 jal=1127 jalr=   2 load-use stalls=2016
+  insertion  instrs=  7567 cycles=  9801 branches= 2176 jal=   2 jalr=   2 load-use stalls= 992
+  fib_rec    instrs= 23321 cycles= 28334 branches= 1973 jal=   0 jalr=1976 load-use stalls=   1
+  fib_iter   instrs=  4197 cycles=  5096 branches=  820 jal=   0 jalr=   2 load-use stalls=  40
+  sieve      instrs=  6610 cycles=  8934 branches= 2052 jal=  55 jalr=   2 load-use stalls= 510
+
+wrote results.csv

@@ -1,0 +1,5 @@
+build/
+sw/build/
+obj_dir/
+*.vvp
+.DS_Store
